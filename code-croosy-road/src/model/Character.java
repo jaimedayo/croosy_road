@@ -2,7 +2,7 @@ package model;
 
 import processing.core.PApplet;
 
-abstract class Character {
+public class Character {
 	public int posX;
 	public int posY;
 	public int direction;
@@ -15,9 +15,9 @@ abstract class Character {
 		this.app = app;
 	}
 
-	public void move() {
+	
 		
-	}
+	
 	public void draw() {
 		
 	}

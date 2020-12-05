@@ -10,9 +10,8 @@ public class Car extends Character {
 		// TODO Auto-generated constructor stub
 	}
 	public void move() {
-		if (posX<=(-100)){posX=559;}
-		if (posX>=(-700)){posX=0;}
-		posX= this.posX + this.direction;
+		
+		posX= posX + direction;
 	}
 	public void draw() {
 		app.fill(255,0,0);

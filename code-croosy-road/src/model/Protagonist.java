@@ -8,7 +8,10 @@ public class Protagonist extends Character  {
 		super(direction, posX, posY, app);
 		// TODO Auto-generated constructor stub
 	}
-
+public void draw() {
+	app.fill(0,0,255);
+	app.ellipse(posX, posY, 50, 50);
+}
 	public void move(int dir) {
 		switch (dir) {
 		case 0:
@@ -17,21 +20,21 @@ public class Protagonist extends Character  {
 			break;
 
 		case 1:
-			if (posY >= 50) {
+			
 				posY = posY - 50;
-			}
+			
 			break;
 		case 2:
 
-			if (posX <= 550) {
+			
 				posX = posX + 50;
-			}
+			
 			break;
 		case 3:
 
-			if (posX >= 50) {
+			
 				posX = posX - 50;
-			}
+			
 			break;
 		}
 	}

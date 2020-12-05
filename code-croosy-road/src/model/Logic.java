@@ -6,39 +6,39 @@ import processing.core.PApplet;
 
 public class Logic {
 	private PApplet app;
-	private String [] arrayStrings;
+	private String[] arrayStrings;
 	private ArrayList<Car> carList;
 	private Protagonist prota;
 
 	public Logic(PApplet app) {
 		this.app = app;
-		
 		carList = new ArrayList<Car>();
-		arrayStrings = app.loadStrings("../data/instructions.txt");
-///code-croosy-road/data/instructions.txt
-	}
+		arrayStrings = app.loadStrings("./data/instructions.txt");
 
-	public void startGame() {
 		for (int i = 0; i < arrayStrings.length; i++) {
 			String lineString = arrayStrings[i];
-			String [] arrayWord = lineString.split(",");
-			Character obj = null;
-			
+			String[] arrayWord = lineString.split(",");
+			Car obj = null;
+			prota = null;
+
 			for (int j = 0; j < arrayWord.length; j++) {
 				String figure = arrayWord[0];
 				int direction = Integer.parseInt(arrayWord[1]);
 				int posX = Integer.parseInt(arrayWord[2]);
 				int posY = Integer.parseInt(arrayWord[3]);
-				
-				obj = figure.equals("carro") 
-						? new Car(direction, posX, posY, app)
-						: new Protagonist(direction, posX, posY, app);
-carList.add((Car) obj);
+
+				if (figure.equals("carro")) {
+				obj =	new Car(direction, posX, posY, app);
+					carList.add(obj);
+				} else {
+					prota = new Protagonist(direction, posX, posY, app);
+				}
+
 			}
-			}
-		
-	}	
-	
+
+		}
+
+	}
 
 	public void moveEney() {
 		for (int i = 0; i < carList.size(); i++) {
@@ -72,7 +72,7 @@ carList.add((Car) obj);
 
 	public Protagonist getProta() {
 		return prota;
-	
+
 	}
-		
+
 }

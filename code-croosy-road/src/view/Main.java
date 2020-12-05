@@ -6,9 +6,9 @@ import model.Car;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
-
+private Controller control;
 	int pag = 0;
-	Controller control;
+	
 
 	public static void main(String[] args) {
 		PApplet.main(Main.class.getName());
@@ -16,11 +16,12 @@ public class Main extends PApplet {
 	}
 
 	public void settings() {
-		size(800, 800);
+		size(600, 600);
 	}
+
 	public void setup() {
-		control =new Controller(this);
-		control.startgames();
+		control = new Controller(this);
+
 	}
 
 	public void draw() {
@@ -36,12 +37,14 @@ public class Main extends PApplet {
 
 			// dibujar carros
 			for (int i = 0; i < control.getCarList().size(); i++) {
-				control.getCarList().get(i).draw();
-			
+			Car c =	control.getCarList().get(i);
+			c.draw();
+			c.move();
 			}
 			control.moveEnemies();
 			// dibujar protagonista
-control.getProta().draw();;
+			control.getProta().draw();
+			
 			// sensor de contacto
 
 			break;
@@ -60,7 +63,7 @@ control.getProta().draw();;
 	public void keyPressed() {
 		switch (key) {
 		case UP:
-			
+
 			control.moveProta(0);
 
 			break;
